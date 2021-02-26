@@ -5,4 +5,8 @@ This exploratory data analysis will examine the characteristics of listings on E
 Popularity is defined in terms of views and favorites.
 relationships in product categories, listing features, and listing creation time.
 
+<img src="product categories reg.png" width="325"/>
+<img src="product categories mostpop.png" width="525"/>
 
+<img src="toysgames regular.png" width="525"/>
+<img src="toysgames mostpopular.png" width="525"/>
