@@ -24,7 +24,7 @@ The final dataset includes features such as:
 
 For this analysis, popularity is defined in terms of views and favorites. A look at the histograms for both these variables shows the distributions are highly concentrated near 0 with a heavy skew to the right. To account for outliers, I used the interquartile method twice to first divide the data into regular listings and outlier listings, and then again divide the outlier listings into small outliers (Popular) and big outliers (Most Popular).
 
-<img src="hists.png" width="425"/>
+<img src="images/hists.png" width="425"/>
 
 These two are not perfectly correlated, which makes sense since a view will not always translate into a favorite. I account for this by dividing the original dataset into 6 separate dataframes, 3 for both, 1 for each level of popularity.
 
@@ -34,23 +34,23 @@ After exploring the intial distributions and correlations of each column, I delv
 
 Distributions of Product Categories by Popularity Level
 
-<img src="product categories reg.png" width="425"/>
+<img src="images/product categories reg.png" width="425"/>
 <br>
-<img src="product categories mostpop.png" width="425"/>
+<img src="images/product categories mostpop.png" width="425"/>
 
 There are 15 different top-level product categories. For regular and Popular posts, Craft Supplies & Tools is the most common category, while for Most Popular posts, Jewelry is the most common. Craft Supplies & Tools is third.
 
 Relationship between Text Length and Popularity
 <br>
-<img src="toysgames regular.png" width="425"/>
+<img src="images/toysgames regular.png" width="425"/>
 <br>
-<img src="toysgames mostpopular.png" width="425"/>
+<img src="images/toysgames mostpopular.png" width="425"/>
 
 Examining the heatmaps between features for each product category revealed warmer spots around the quantitative text feature columns.
 
 Seasonality of Post Creation
 
-<img src="listings per months.png" width="425"/>
+<img src="images/listings per months.png" width="425"/>
 
 Grouping listings by the month they were created in shows a strikingly large number of posts in February compared to other months.
 
