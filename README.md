@@ -22,7 +22,7 @@ The final dataset includes features such as:
 
 ## Defining Popularity ##
 
-For this analysis, popularity is defined in terms of views and favorites. A look at the histograms for both these variables shows the distributions are highly concentrated near 0 with a heavy skew to the right. To account for outliers, I used the interquartile method twice to first divide the data into regular listings and outlier listings, and then again divide the outlier listings into small outliers (popular) and big outliers (most popular).
+For this analysis, popularity is defined in terms of views and favorites. A look at the histograms for both these variables shows the distributions are highly concentrated near 0 with a heavy skew to the right. To account for outliers, I used the interquartile method twice to first divide the data into regular listings and outlier listings, and then again divide the outlier listings into small outliers (Popular) and big outliers (Most Popular).
 
 <img src="hists.png" width="425"/>
 
@@ -30,7 +30,7 @@ These two are not perfectly correlated, which makes sense since a view will not 
 
 ## EDA and Findings ##
 
-After exploring the intial distributions and correlations of each column, I delved deeper into the data by dividing it up by product categories, month of post creation, and the text feature columns. The most interesting findings were:
+After exploring the intial distributions and correlations of each column, I delved deeper into the data by dividing it up by product categories, month of post creation, and the text feature columns. The most interesting findings included:
 
 Distributions of Product Categories by Popularity Level
 
@@ -38,16 +38,21 @@ Distributions of Product Categories by Popularity Level
 <br>
 <img src="product categories mostpop.png" width="425"/>
 
+There are 15 different top-level product categories. For regular and Popular posts, Craft Supplies & Tools is the most common category, while for Most Popular posts, Jewelry is the most common. Craft Supplies & Tools is third.
+
 Relationship between Text Length and Popularity
 <br>
 <img src="toysgames regular.png" width="425"/>
 <br>
 <img src="toysgames mostpopular.png" width="425"/>
 
+Examining the heatmaps between features for each product category revealed warmer spots around the quantitative text feature columns.
+
 Seasonality of Post Creation
 
 <img src="listings per months.png" width="425"/>
 
+Grouping listings by the month they were created in shows a strikingly large number of posts in February compared to other months.
 
 ## Hypothesis Testing ##
 
@@ -64,9 +69,9 @@ For each of these, I chose an alpha level of 0.05, as it's reasonable to run tes
 
 We can assume the data are IID as they were pulled randomly from the API.
 
-For the first hypothesis, I ran a two sample t-test on the subset of regular listings that were created in the month of February against the rest of the months, setting the equal variance parameter to false, as the sample sizes are not the same. We reject the null with a p-value of 0 for Wiews, and an extremely tiny p-value for Favorites. The result is much more significant for favorites than for views.
+For the first hypothesis, I ran a two sample t-test on the subset of regular listings that were created in the month of February against the rest of the months, setting the equal variance parameter to false, as the sample sizes are not the same. We reject the null with a p-value of 0 for Views, and an extremely tiny p-value for Favorites. The result is much more significant for favorites than for views.
 
-Out of curiousty, I did the same for the subsets of popular/most popular listings. Interestingly enough, we failed to reject the null for all four cases. It appears that month of creation is not a factor in popularity when the listings are already highly popular. There are likely many other facotrs that caused them to become popular, and whether teh listing was created in February is not a significant one.
+Out of curiousty, I did the same for the subsets of popular/most popular listings. Interestingly enough, we failed to reject the null for all four cases. It appears that month of creation is not a factor in popularity when the listings are already highly popular. There are likely many other factors that caused them to become popular, and whether the listing was created in February is not a significant one.
 
 For the second hypothesis, I ran a two sample t-test, again setting equal variances to False. We reject the null with a p-value of 3.2062 -17.
 
